@@ -1,3 +1,10 @@
+#Version 0.4.4 shopen (2017-02-03)
+
+##General
+- Fixed pagedown bower package reference
+
+------------------------------------------------------------
+
 #Version 0.4.3 taxi-driver (2015-03-19)
 
 ##General
