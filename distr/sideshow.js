@@ -1,8 +1,8 @@
 /**
  @license
  Sideshow - An incredible Javascript interactive help Library
- Version: 0.4.4
- Date: 2017-02-03
+ Version: 0.4.5
+ Date: 2017-02-06
  Author: Fortes Informática http://www2.fortesinformatica.com.br/
  Available under Apache License 2.0 (https://raw2.github.com/fortesinformatica/sideshow/master/LICENSE)
  **/
@@ -74,7 +74,7 @@
 
         get VERSION() {
 
-          return "0.4.4";
+          return "0.4.5";
 
         }
 
@@ -333,6 +333,14 @@
      @type boolean
      **/
     SS.config.autoSkipIntro = false;
+
+    /**
+     * Defines optional custom translations
+     * Format: { availableWizards: {"uk": "Доступні візарди"}, ...}
+     * @type Object
+     */
+    SS.config.tranlations = {};
+
 
     /**
      Stores the variables used in step evaluators 
@@ -2291,7 +2299,23 @@
       Mask.CompositeMask.singleInstance.init();
       flags.lockMaskUpdate = true;
       Mask.CompositeMask.singleInstance.render();
+      initializeStrings(this.config.tranlations);
     };
+
+    function initializeStrings(inTranslations) {
+      for (var key in inTranslations) {
+        if (!inTranslations.hasOwnProperty(key)) {
+          continue;
+        }
+        var obj = inTranslations[key];
+        for (var lang in obj) {
+          if (!obj.hasOwnProperty(lang)) {
+            continue;
+          }
+          strings[key][lang] = obj[lang];
+        }
+      }
+    }
 
     /**
      Receives a function with just a multiline comment as body and converts to a here-document string
@@ -2433,7 +2457,7 @@
      Registers a wizard
      
      @method registerWizard
-     @param {Object} wizardConfig                          
+     @param {Object} wizardConfig
      @return {Object}                                      The wizard instance
      @static
      **/
@@ -2466,7 +2490,7 @@
     };
 
     /**
-     Checks if there are eligible wizards, if exists, shows the wizard menu   
+     Checks if there are eligible wizards, if exists, shows the wizard menu
      
      @method showWizardsList
      @param {boolean} onlyNew                              Checks only recently added wizards
@@ -2485,7 +2509,7 @@
     };
 
     /**
-     Shows a list with the related wizards  
+     Shows a list with the related wizards
      
      @method showRelatedWizardsList
      @param {Object} completedWizard                       The recently completed wizard

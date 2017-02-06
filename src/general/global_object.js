@@ -13,7 +13,23 @@
         Mask.CompositeMask.singleInstance.init();
         flags.lockMaskUpdate = true;
         Mask.CompositeMask.singleInstance.render();
+        initializeStrings(this.config.tranlations);
     };
+
+    function initializeStrings(inTranslations) {
+      for (var key in inTranslations) {
+        if (!inTranslations.hasOwnProperty(key)) {
+          continue;
+        }
+        var obj = inTranslations[key];
+        for (var lang in obj) {
+          if (!obj.hasOwnProperty(lang)) {
+            continue;
+          }
+          strings[key][lang] = obj[lang];
+        }
+      }
+    }
 
     /**
     Receives a function with just a multiline comment as body and converts to a here-document string
@@ -151,8 +167,8 @@
                 flags.lockMaskUpdate = false;
             } else
                 throw new SSException("101", "A subject must have only one element. Multiple elements by step will be supported in future versions of Sideshow.");
-        } 
-        else if (subjectChanged) 
+        }
+        else if (subjectChanged)
             SS.setEmptySubject();
         else
             throw new SSException("100", "Invalid subject.");
@@ -162,7 +178,7 @@
     Registers a wizard
 
     @method registerWizard
-    @param {Object} wizardConfig                          
+    @param {Object} wizardConfig
     @return {Object}                                      The wizard instance
     @static
     **/
@@ -195,7 +211,7 @@
     };
 
     /**
-    Checks if there are eligible wizards, if exists, shows the wizard menu   
+    Checks if there are eligible wizards, if exists, shows the wizard menu
 
     @method showWizardsList
     @param {boolean} onlyNew                              Checks only recently added wizards
@@ -214,7 +230,7 @@
     };
 
     /**
-    Shows a list with the related wizards  
+    Shows a list with the related wizards
 
     @method showRelatedWizardsList
     @param {Object} completedWizard                       The recently completed wizard
@@ -287,7 +303,7 @@
                 if(!wizard) throw new SSException("205", "There's no wizard with name '" + wizardName + "'.");
 
                 wizard.prepareAndPlay();
-            } 
+            }
             else SS.showWizardsList(onlyNew);
 
             this.CloseButton.singleInstance.render();

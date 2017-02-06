@@ -1,3 +1,10 @@
+#Version 0.4.5 shopen (2017-02-06)
+
+##General
+Added Sideshow.config.translations - used to override or complement missing strings
+
+------------------------------------------------------------
+
 #Version 0.4.4 shopen (2017-02-03)
 
 ##General

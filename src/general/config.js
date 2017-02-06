@@ -40,3 +40,11 @@
 	@type boolean
 	**/
 	SS.config.autoSkipIntro = false;
+
+  /**
+   * Defines optional custom translations
+   * Format: { availableWizards: {"uk": "Доступні візарди"}, ...}
+   * @type Object
+   */
+	SS.config.tranlations = {};
+
