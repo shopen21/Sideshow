@@ -33,7 +33,7 @@
 	SS.config.language = "en";
 
 	/**
-	Defines if the intro screen (the tutorial list) will be	skipped when there's just one 
+	Defines if the intro screen (the tutorial list) will be	skipped when there's just one
 	tutorial available. This way, when Sideshow is invoked, the first step is directly shown.
 
 	@@field autoSkipIntro
@@ -46,5 +46,13 @@
    * Format: { availableWizards: {"uk": "Доступні візарди"}, ...}
    * @type Object
    */
-	SS.config.tranlations = {};
+	SS.config.tranlations = {
+	  availableWizards: {},
+    relatedWizards: {},
+    noAvailableWizards: {},
+    close: {},
+    estimatedTime: {},
+    next: {},
+    finishWizard: {}
+	};
 

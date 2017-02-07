@@ -1,3 +1,10 @@
+#Version 0.4.6 shopen (2017-02-07)
+
+##Fix
+Fixed translation initializations
+
+------------------------------------------------------------
+
 #Version 0.4.5 shopen (2017-02-06)
 
 ##General

@@ -1,8 +1,8 @@
 /**
  @license
  Sideshow - An incredible Javascript interactive help Library
- Version: 0.4.5
- Date: 2017-02-06
+ Version: 0.4.6
+ Date: 2017-02-07
  Author: Fortes Informática http://www2.fortesinformatica.com.br/
  Available under Apache License 2.0 (https://raw2.github.com/fortesinformatica/sideshow/master/LICENSE)
  **/
@@ -74,7 +74,7 @@
 
         get VERSION() {
 
-          return "0.4.5";
+          return "0.4.6";
 
         }
 
@@ -326,7 +326,7 @@
     SS.config.language = "en";
 
     /**
-     Defines if the intro screen (the tutorial list) will be	skipped when there's just one 
+     Defines if the intro screen (the tutorial list) will be	skipped when there's just one
      tutorial available. This way, when Sideshow is invoked, the first step is directly shown.
      
      @@field autoSkipIntro
@@ -339,7 +339,15 @@
      * Format: { availableWizards: {"uk": "Доступні візарди"}, ...}
      * @type Object
      */
-    SS.config.tranlations = {};
+    SS.config.tranlations = {
+      availableWizards: {},
+      relatedWizards: {},
+      noAvailableWizards: {},
+      close: {},
+      estimatedTime: {},
+      next: {},
+      finishWizard: {}
+    };
 
 
     /**
