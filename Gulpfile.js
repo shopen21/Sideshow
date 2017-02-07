@@ -195,7 +195,7 @@ function updateBowerDependencies(){
 }
 
 function compileSideshowStylesheets(){
-  return gulp.src('stylesheets/sideshow.styl')
+  gulp.src('stylesheets/sideshow.styl')
         .pipe(stylus())
         .on('error', errorHandler('sideshow_stylesheet_compiling_error'))
         .pipe(autoPrefixerConfig())
@@ -209,7 +209,7 @@ function compileSideshowStylesheets(){
         .pipe(gulp.dest('distr/stylesheets'));
 
         //Font face stylesheet
-        gulp.src('stylesheets/sideshow-fontface.styl')
+  return gulp.src('stylesheets/sideshow-fontface.styl')
         .pipe(stylus())
         .on('error', errorHandler('fontface_stylesheet_compiling_error'))
         .pipe(autoPrefixerConfig())
