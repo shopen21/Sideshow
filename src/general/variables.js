@@ -19,7 +19,7 @@
             @type String
             **/
             get VERSION() {
-                return "0.4.7";
+                return "0.4.8";
             }
         },
 

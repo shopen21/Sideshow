@@ -105,7 +105,7 @@ Sideshow provides a way for detecting if your tutorial is ready to proceed to th
 			text: "Ok, look at the Next button, it's disabled, for now you're not allowed to continue. As an example, the **completing condition** for this step is that user (obviously you =D) has to drag the Dr. Brown photo and drop it over the red square. Please, perform this action in order to activate the next button.",
 		    format: "markdown",
 		    listeners: {
-		    	beforeStep: function(){
+		    	beforeStep: function(callback){
 		    		$("#red_square").fadeIn(function(){
 		    			$('#red_square').on('dragover', function (e) {
 						    var event = e.originalEvent;
@@ -130,7 +130,7 @@ Sideshow provides a way for detecting if your tutorial is ready to proceed to th
 						});
 
 		    		});
-		    		
+		    		if (callback) {callback();}
 		    	}
 		    },
 		    targets: "#dr_brown, #red_square",
@@ -147,7 +147,7 @@ Sideshow provides a way for detecting if your tutorial is ready to proceed to th
 			text: "If you want Sideshow proceed automatically to the next step, you can use set **autoContinue** flag to true. This way, when your completing conditions are satisfied, Sideshow will continue to the next step.\n\nDrag the Dr. Brown photo again to its original place to continue.",
 		    format: "markdown",
 		    listeners: {
-		    	beforeStep: function(){
+		    	beforeStep: function(callback){
 	    			$('#bttf figure').on('dragover', function (e) {
 					    var event = e.originalEvent;
 					    if (event.preventDefault) {
@@ -169,6 +169,7 @@ Sideshow provides a way for detecting if your tutorial is ready to proceed to th
 					    
 					    return false;
 					});
+					if (callback) {callback();}
 		    	},
 		    	afterStep: function(){
 		    		$("#red_square").fadeOut();
